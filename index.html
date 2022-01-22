@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>ML API</title> 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+  
+
+<div class="content">
+	<h1>Predicting Startups Acqusition Status</h1>
+        <h2 align='center'>Enter startup information</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="/predict" method="POST"> 
+    	<input type="text" name="founded_at" placeholder="founded_at" required="required" />
+        <input type="text" name="closed" placeholder="closed" />
+		<input type="text" name="funding rounds" placeholder="funding rounds" required="required"/>
+        <input type="text" name="funding total usd" placeholder="funding_total_usd" required="required" />
+        <input type="text" name="milestones" placeholder="milestones" required="required" />
+        <input type="text" name="relationships" placeholder="relationships" required="required" />
+        <input type="text" name="lat" placeholder="lat" required="required" />
+        <input type="text" name="lng" placeholder="lng" /><br><br>
+        <label for="category_code">Category Code:</label><br><br>
+
+            <select name="category_code" id="category_code">
+                <option value="category_code_biotech"> category_code_biotech</option>
+                <option value="category_code_consulting">category_code_consulting</option>
+                <option value="category_code_ecommerce">category_code_ecommerce</option>
+                <option value="category_code_education">category_code_education</option>
+                <option value="category_code_enterprise">category_code_enterprise</option>
+                <option value="category_code_games_video">category_code_games_video</option>
+                <option value="category_code_hardware">category_code_hardware</option>
+                <option value="category_code_mobile">category_code_mobile</option>
+                <option value="category_code_network_hosting">category_code_network_hosting</option>
+                <option value="category_code_other">category_code_other</option>
+                <option value="category_code_public_relations">category_code_public_relations</option>
+                <option value="category_code_search">category_code_search</option>
+                <option value="category_code_software">category_code_software</option>
+                <option value="category_code_web">category_code_web</option>            
+            </select><br><br>
+            
+            <label for="country_code">Country Code</label><br> <br>
+            <select name="country_code" id="country_code">
+                <option value="country_code_BRA">country_code_BRA</option>
+                <option value="country_code_CAN">country_code_CAN</option>
+                <option value="country_code_DEU">country_code_DEU</option>
+                <option value="country_code_ESP">country_code_ESP</option>
+                <option value="country_code_FRA">country_code_FRA</option>
+                <option value="country_code_GBR">country_code_GBR</option>
+                <option value="country_code_IND">country_code_IND</option>
+                <option value="country_code_IRL">country_code_IRL</option>
+                <option value="country_code_ISR">country_code_ISR</option>
+                <option value="country_code_NLD">country_code_NLD</option>
+                <option value="country_code_USA">country_code_USA</option>
+                <option value="country_code_other">country_code_other</option>           
+            </select>    
+      <!--  <input type="number" name="category code" placeholder="category code" required="skip if not closed" />  !-->   
+      <!--  <input type="number" name="country code" placeholder="country code" required="skip if not closed" />    !-->
+
+        <br><br> <button type="submit" class="btn btn-primary btn-block btn-large">Test</button>
+    </form>
+ </div>
+
+ {% endblock %}
